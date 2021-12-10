@@ -1,0 +1,23 @@
+# Maintainer: Gabriel Matthews <axyl.os.linux.com>
+
+pkgname=axyl-scripts
+_pkgname=axyl-scripts
+_destname1="/usr/local/bin/"
+pkgver=1.0
+pkgrel=1
+pkgdesc="System Scipts for BetterArch"
+arch=('any')
+url="https://github.com/betterarch/betterarch-scripts"
+license=('MIT')
+makedepends=(git)
+depends=(light xorg-xbacklight)
+provides=(${pkgname})
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+$url.git")
+md5sums=('SKIP')
+
+package() {
+    install -dm755 ${pkgdir}${_destname1}
+    cp -lr ${srcdir}/${_pkgname}${_destname1}.* ${pkgdir}${_destname1}
+    rm -rf ${pkgdir}${_destname1}/"bin"
+}

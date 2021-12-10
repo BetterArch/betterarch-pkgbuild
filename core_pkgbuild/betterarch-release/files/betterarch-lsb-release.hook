@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = lsb-release
+
+[Action]
+Description = Updating BetterArch LSB Configurations...
+When = PostTransaction
+Exec = /usr/bin/betterarch-hooks-runner lsb-release

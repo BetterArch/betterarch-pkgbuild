@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = betterarch-hooks
+
+[Action]
+Description = Updating BetterArch System Configurations...
+When = PostTransaction
+Exec = /usr/bin/betterarch-hooks-runner

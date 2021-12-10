@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=BetterArch Welcome
+Comment=BetterArch Welcome Application
+Exec=betterarch-welcome
+Icon=betterarch-logo
+Type=Application
+Categories=System;

@@ -1,0 +1,21 @@
+
+pkgname=betterarch-grub-theme
+_pkgname=betterarch-grub-theme
+_destname1=/usr/share/grub/themes
+pkgver=1.0
+pkgrel=1
+pkgdesc="GRUB menu theme for BetterArch"
+arch=('x86_64')
+url="https://github.com/betterarch/betterarch-grub-theme"
+license=('MIT')
+depends=(grub)
+makedepends=(git)
+provides=(${pkgname})
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+$url.git")
+md5sums=('SKIP')
+
+package() {
+    install -dm755 ${pkgdir}${_destname1}
+    cp -r ${srcdir}/${_pkgname}${_destname1}/* ${pkgdir}${_destname1}
+}

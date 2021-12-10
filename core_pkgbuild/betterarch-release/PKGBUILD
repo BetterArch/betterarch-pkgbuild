@@ -1,0 +1,23 @@
+
+pkgname=betterarch-release
+pkgver=v21.10
+pkgrel=1
+pkgdesc="Pacman hooks for BetterArch to fix various system files."
+arch=('any')
+url="https://github.com/betterarch/betterarch-pkgbuild/core_pkgbuild/betterarch-release"
+license=('MIT')
+
+prepare() {
+    cp -af ../files/* ${srcdir}
+}
+
+package() {
+    local hooks=${pkgdir}/usr/share/libalpm/hooks
+    local bin=${pkgdir}/usr/bin
+
+    install -Dm644 ${srcdir}/betterarch-hooks.hook              ${hooks}/betterarch-hooks.hook
+    install -Dm644 ${srcdir}/betterarch-lsb-release.hook        ${hooks}/betterarch-lsb-release.hook
+    install -Dm644 ${srcdir}/betterarch-os-release.hook         ${hooks}/betterarch-os-release.hook
+
+    install -Dm755 ${srcdir}/betterarch-hooks-runner            ${bin}/betterarch-hooks-runner
+}

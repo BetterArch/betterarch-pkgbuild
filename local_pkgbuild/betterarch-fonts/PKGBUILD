@@ -1,0 +1,21 @@
+
+pkgname=betterarch-fonts
+_pkgname=betterarch-fonts
+_destname1="/etc/skel/"
+pkgver=1.0
+pkgrel=1
+pkgdesc="Fonts for Axyl OS"
+arch=('x86_64')
+url="https://github.com/betterarch/betterarch-fonts"
+license=('MIT')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=("git+$url.git")
+md5sums=('SKIP')
+
+package() {
+    install -dm755 ${pkgdir}${_destname1}
+    cp -lr ${srcdir}/${_pkgname}${_destname1}.* ${pkgdir}${_destname1}
+    rm -rf ${pkgdir}${_destname1}/"skel"
+}
