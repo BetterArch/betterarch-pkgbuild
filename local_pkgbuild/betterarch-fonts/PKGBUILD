@@ -1,10 +1,10 @@
 
 pkgname=betterarch-fonts
 _pkgname=betterarch-fonts
-_destname1="/etc/skel/"
+_destname1="/etc/share/"
 pkgver=1.0
 pkgrel=1
-pkgdesc="Fonts for Axyl OS"
+pkgdesc="Fonts for BetterArch"
 arch=('x86_64')
 url="https://github.com/betterarch/betterarch-fonts"
 license=('MIT')
